@@ -30,7 +30,7 @@ export async function generateShortUrl(req,res){
 
     return res.status(201).json({
         shortLink: `http://localhost:3000/${shortCode}`,
-        expiry: `Date.now() + ${validity}`
+        expiry: `${Date.now() + (validity || 30) * 60000}`
     })
 }
 
